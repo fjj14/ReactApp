@@ -1,4 +1,4 @@
-mport 'react-native-gesture-handler';
+import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import Task from './Task'
 import Home from './home'
