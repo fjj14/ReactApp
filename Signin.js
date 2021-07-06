@@ -67,7 +67,7 @@ const compareData = async (value) => {
 }
     return (
        
-    <View>
+    <View style={styles.container}>
         
         <Text>Login to track your progress</Text>
         <TextInput
@@ -102,6 +102,13 @@ const compareData = async (value) => {
 );
 };
 const styles = StyleSheet.create ({
+  container: {
+    flex: 1,
+    flexDirection:'column',
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default Signin;

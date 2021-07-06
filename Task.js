@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import 'react-native-gesture-handler';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import {  SafeAreaView, ScrollView, Button, StyleSheet, Text, TextInput, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -16,7 +14,20 @@ const Task = () => {
   
   useEffect(() => {name()}
   ,[])
-  
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    //console.warn("A date has been picked: ", date);
+    setDate(date);
+  };
     const [date, setDate] = useState(new Date())
     const onChange = date => {
 
@@ -72,11 +83,14 @@ const Task = () => {
           onChangeText={text => {setTaskDescription(text)}}
           placeholder="Describe the task"
           />
-  <Calendar
-        onChange={onChange}
-        value={date}
-        className="react-calendar"
+       <Button title="Show Date Picker" onPress={showDatePicker} />
+      <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
       />
+ 
      <Button
           color='blue' title='Add task' alignText='center'
           onPress = {() =>

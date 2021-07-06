@@ -17,7 +17,10 @@ export default function App() {
         <Stack.Screen
           name="main"
           component={loginScreen}
-          options={{ title: 'You already Use your phone for everything else, why not use it for yourself?', headerStyle: { backgroundColor: 'blue', width: 100, height: 300 },
+          options={{ title: 'Track your work', headerStyle: {  flexDirection: 'row',
+          alignItems: 'center',
+          alignSelf: 'flex-start',
+          backgroundColor: 'blue', width: 10, height: 300},
           headerTitleStyle: { color: 'white' }, headerTitleAlign:'center',}}
           
         />
